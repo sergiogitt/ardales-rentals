@@ -1,9 +1,11 @@
 ---
+import withBase from '../utils/base';
+
 const navLinks = [
-  { href: '/', label: 'Inicio' },
-  { href: '/propiedades', label: 'Propiedades' },
-  { href: '/sobre-ardales', label: 'Ardales' },
-  { href: '/contacto', label: 'Contacto' },
+  { href: withBase('/'), label: 'Inicio' },
+  { href: withBase('/propiedades'), label: 'Propiedades' },
+  { href: withBase('/sobre-ardales'), label: 'Ardales' },
+  { href: withBase('/contacto'), label: 'Contacto' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -11,7 +13,7 @@ const currentPath = Astro.url.pathname;
 
 <nav class="nav" id="nav">
   <div class="nav__inner">
-    <a href="/" class="nav__logo">
+    <a href={withBase('/')} class="nav__logo">
       <span class="nav__logo-main">Isabel</span>
       <span class="nav__logo-sub">Apartamentos</span>
     </a>
@@ -29,7 +31,7 @@ const currentPath = Astro.url.pathname;
       ))}
     </ul>
 
-    <a href="/contacto" class="nav__cta">Reservar</a>
+    <a href={withBase('/contacto')} class="nav__cta">Reservar</a>
 
     <button class="nav__burger" aria-label="Abrir menú" id="burger">
       <span></span><span></span><span></span>
@@ -42,7 +44,7 @@ const currentPath = Astro.url.pathname;
       {navLinks.map(link => (
         <li><a href={link.href} class="nav__mobile-link">{link.label}</a></li>
       ))}
-      <li><a href="/contacto" class="nav__mobile-cta">Reservar ahora</a></li>
+      <li><a href={withBase('/contacto')} class="nav__mobile-cta">Reservar ahora</a></li>
     </ul>
   </div>
 </nav>

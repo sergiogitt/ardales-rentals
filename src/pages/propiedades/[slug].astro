@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { properties } from '../../data/properties';
 import { whatsappLink } from '../../data/properties';
+import withBase from '../../utils/base';
 
 export async function getStaticPaths() {
   return properties.map(p => ({
@@ -104,7 +105,7 @@ const waUrl = whatsappLink(waMsg);
     <div class="prop-hero__overlay"></div>
 
     <div class="prop-hero__content">
-      <a href="/propiedades" class="prop-hero__back">← Todas las propiedades</a>
+      <a href={withBase('/propiedades')} class="prop-hero__back">← Todas las propiedades</a>
       <p class="prop-hero__location">📍 {property.location}</p>
       <h1 class="prop-hero__title">{property.name}</h1>
       <p class="prop-hero__tagline">{property.tagline}</p>
@@ -212,7 +213,7 @@ const waUrl = whatsappLink(waMsg);
       <h2>También te puede interesar</h2>
       <div class="other-props__grid">
         {properties.filter(p => p.slug !== property.slug).map(p => (
-          <a href={`/propiedades/${p.slug}`} class="other-card">
+          <a href={withBase(`/propiedades/${p.slug}`)} class="other-card">
             <div class="other-card__image" style={`background: linear-gradient(135deg, ${p.color}, color-mix(in srgb, ${p.color} 60%, #3d2b1f))`}>
               <img class="property-card__emoji" src={p.images[0]}/>
             </div>

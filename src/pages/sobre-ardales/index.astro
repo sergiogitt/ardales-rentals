@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import withBase from '../../utils/base';
 ---
 
 <Layout
@@ -136,7 +137,7 @@ import Footer from '../../components/Footer.astro';
       <div class="ardales-cta">
         <h2>¿Listo para descubrir Ardales?</h2>
         <p>Reserva una de nuestras casas rurales y vive Ardales desde dentro.</p>
-        <a href="/propiedades" class="btn">Ver propiedades</a>
+        <a href={withBase('/propiedades')} class="btn">Ver propiedades</a>
       </div>
 
     </div>

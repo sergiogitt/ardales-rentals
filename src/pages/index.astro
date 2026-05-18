@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import { properties } from '../data/properties';
+import withBase from '../utils/base';
 ---
 
 <Layout
@@ -28,7 +29,7 @@ import { properties } from '../data/properties';
         Vive Ardales con alma y calma.
       </p>
       <div class="hero__actions">
-        <a href="/propiedades" class="btn btn--primary">Ver propiedades</a>
+        <a href={withBase('/propiedades')} class="btn btn--primary">Ver propiedades</a>
         <a href="#por-que" class="btn btn--ghost">Descubre más ↓</a>
       </div>
     </div>
@@ -137,7 +138,7 @@ import { properties } from '../data/properties';
             </div>
           </li>
         </ul>
-        <a href="/sobre-ardales" class="btn btn--primary">Conoce Ardales</a>
+        <a href={withBase('/sobre-ardales')} class="btn btn--primary">Conoce Ardales</a>
       </div>
       <div class="why__visual">
         <div class="why__card why__card--1">
@@ -166,8 +167,8 @@ import { properties } from '../data/properties';
       <h2>¿Listo para tu escapada?</h2>
       <p>Reserva directamente con nosotros y obtén el mejor precio garantizado.</p>
       <div class="cta-band__actions">
-        <a href="/propiedades" class="btn btn--white">Ver disponibilidad</a>
-        <a href="/contacto" class="btn btn--outline-white">Consultar fechas</a>
+        <a href={withBase('/propiedades')} class="btn btn--white">Ver disponibilidad</a>
+        <a href={withBase('/contacto')} class="btn btn--outline-white">Consultar fechas</a>
       </div>
     </div>
   </section>
