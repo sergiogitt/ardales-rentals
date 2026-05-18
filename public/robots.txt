@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://alorarentals.com/sitemap-index.xml
