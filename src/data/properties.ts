@@ -1,3 +1,6 @@
+export function whatsappLink(message: string) {
+  return `https://wa.me/${+34685736076}?text=${encodeURIComponent(message)}`;
+}
 export const properties = [
   {
     slug: 'casa-del-olivo',

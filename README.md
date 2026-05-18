@@ -1,4 +1,4 @@
-# Ardales Rentals — Sitio web Astro
+# Isabel Apartamentos — Sitio web Astro
 
 Web para alquiler vacacional de 3 propiedades en Ardales, Málaga.
 
