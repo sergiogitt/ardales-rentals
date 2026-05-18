@@ -1,0 +1,244 @@
+---
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/propiedades', label: 'Propiedades' },
+  { href: '/sobre-ardales', label: 'Ardales' },
+  { href: '/contacto', label: 'Contacto' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      <span class="nav__logo-main">Ardales</span>
+      <span class="nav__logo-sub">Rentals</span>
+    </a>
+
+    <ul class="nav__links">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={`nav__link ${currentPath === link.href ? 'nav__link--active' : ''}`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <a href="/contacto" class="nav__cta">Reservar</a>
+
+    <button class="nav__burger" aria-label="Abrir menú" id="burger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="nav__mobile" id="mobileMenu">
+    <ul>
+      {navLinks.map(link => (
+        <li><a href={link.href} class="nav__mobile-link">{link.label}</a></li>
+      ))}
+      <li><a href="/contacto" class="nav__mobile-cta">Reservar ahora</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background 0.4s, box-shadow 0.4s;
+  }
+
+  .nav.scrolled {
+    background: rgba(250, 247, 242, 0.97);
+    box-shadow: 0 1px 0 rgba(61,43,31,0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+  }
+
+  .nav__logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 0.1rem;
+  }
+
+  .nav__logo-main {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    letter-spacing: 0.02em;
+  }
+
+  .nav__logo-sub {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 300;
+    color: var(--stone);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .nav__links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+  }
+
+  .nav__link {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--earth);
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--terracotta);
+    transition: width 0.3s;
+  }
+
+  .nav__link:hover,
+  .nav__link--active {
+    color: var(--terracotta);
+  }
+
+  .nav__link:hover::after,
+  .nav__link--active::after {
+    width: 100%;
+  }
+
+  .nav__cta {
+    background: var(--terracotta);
+    color: var(--white);
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .nav__cta:hover {
+    background: var(--terracotta-dark);
+    transform: translateY(-1px);
+  }
+
+  .nav__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav__burger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--earth);
+    transition: all 0.3s;
+  }
+
+  .nav__mobile {
+    display: none;
+    background: var(--cream);
+    padding: 1.5rem 2rem 2rem;
+    border-top: 1px solid rgba(61,43,31,0.1);
+  }
+
+  .nav__mobile ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav__mobile-link {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--earth);
+  }
+
+  .nav__mobile-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: var(--terracotta);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .nav__links,
+    .nav__cta {
+      display: none;
+    }
+
+    .nav__burger {
+      display: flex;
+    }
+
+    .nav__mobile.open {
+      display: block;
+    }
+
+    .nav.scrolled .nav__mobile.open {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('nav');
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+  });
+
+  burger?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('open');
+    nav?.classList.add('scrolled');
+  });
+</script>
