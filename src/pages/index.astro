@@ -1,0 +1,644 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import { properties } from '../data/properties';
+---
+
+<Layout
+  title="Alquiler Rural en Ardales, Málaga | Ardales Rentals"
+  description="Descubre nuestras 3 casas rurales en Ardales, Málaga. Piscinas privadas, vistas al Guadalhorce y la Sierra. Alquiler vacacional auténtico en Andalucía. Reserva directa."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__texture"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Ardales · Málaga · Andalucía</p>
+      <h1 class="hero__title">
+        Donde el tiempo<br />
+        <em>se detiene</em>
+      </h1>
+      <p class="hero__subtitle">
+        Tres alojamientos únicos entre naturaleza y montaña, junto al Caminito del Rey.
+        Vive Ardales con alma y calma.
+      </p>
+      <div class="hero__actions">
+        <a href="/propiedades" class="btn btn--primary">Ver propiedades</a>
+        <a href="#por-que" class="btn btn--ghost">Descubre más ↓</a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <section class="strip">
+    <div class="strip__inner">
+      <div class="strip__item">
+        <strong>3</strong>
+        <span>propiedades exclusivas</span>
+      </div>
+      <div class="strip__divider"></div>
+      <div class="strip__item">
+        <strong>10 min</strong>
+        <span>del Caminito del Rey</span>
+      </div>
+      <div class="strip__divider"></div>
+      <div class="strip__item">
+        <strong>45 min</strong>
+        <span>aeropuerto de Málaga</span>
+      </div>
+      <div class="strip__divider"></div>
+      <div class="strip__item">
+        <strong>100%</strong>
+        <span>reserva directa, sin comisiones</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES -->
+  <section class="properties" id="propiedades">
+    <div class="properties__inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Nuestras propiedades</p>
+        <h2 class="section-title">Tres formas de vivir Ardales</h2>
+        <p class="section-desc">
+          Cada propiedad tiene su propio carácter, su propia luz, su propia historia.
+          Todas comparten la magia de Ardales.
+        </p>
+      </div>
+
+      <div class="properties__grid">
+        {properties.map(p => (
+          <PropertyCard
+            slug={p.slug}
+            name={p.name}
+            tagline={p.tagline}
+            location={p.location}
+            guests={p.guests}
+            bedrooms={p.bedrooms}
+            bathrooms={p.bathrooms}
+            price={p.price}
+            features={p.features}
+            images={p.images}
+            emoji={p.emoji}
+            color={p.color}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ALORA -->
+  <section class="why" id="por-que">
+    <div class="why__inner">
+      <div class="why__text">
+        <p class="section-eyebrow">¿Por qué Ardales?</p>
+        <h2 class="section-title">El secreto mejor guardado de Málaga</h2>
+        <p class="why__body">
+          Ardales es uno de los pueblos más bellos de la provincia de Málaga.
+          Su castillo árabe, sus calles encaladas y sus miradores sobre el
+          Guadalhorce cautivan a todo el que llega. Y a diferencia de la costa,
+          aquí el tiempo avanza a otro ritmo.
+        </p>
+        <ul class="why__list">
+          <li>
+            <span class="why__icon">🏛️</span>
+            <div>
+              <strong>Patrimonio histórico</strong>
+              <p>Castillo árabe, iglesia del siglo XVI y termas romanas a pocos kilómetros.</p>
+            </div>
+          </li>
+          <li>
+            <span class="why__icon">🥾</span>
+            <div>
+              <strong>Caminito del Rey</strong>
+              <p>La ruta de senderismo más espectacular de España comienza aquí.</p>
+            </div>
+          </li>
+          <li>
+            <span class="why__icon">🫒</span>
+            <div>
+              <strong>Gastronomía auténtica</strong>
+              <p>Aceite de oliva, vinos de la Axarquía y cocina andaluza de verdad.</p>
+            </div>
+          </li>
+          <li>
+            <span class="why__icon">☀️</span>
+            <div>
+              <strong>Clima excepcional</strong>
+              <p>Más de 300 días de sol al año, temperaturas suaves todo el año.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="/sobre-ardales" class="btn btn--primary">Conoce Ardales</a>
+      </div>
+      <div class="why__visual">
+        <div class="why__card why__card--1">
+          <span>36°48'N · 4°41'W</span>
+          <p>Ardales, Málaga</p>
+        </div>
+        <div class="why__card why__card--2">
+          <span class="why__big">562 m</span>
+          <p>sobre el nivel del mar</p>
+        </div>
+        <div class="why__card why__card--3">
+          <span class="why__big">+300</span>
+          <p>días de sol al año</p>
+        </div>
+        <div class="why__card why__card--4">
+          <p>Pueblo Blanco</p>
+          <span>de Andalucía</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="cta-band__inner">
+      <h2>¿Listo para tu escapada?</h2>
+      <p>Reserva directamente con nosotros y obtén el mejor precio garantizado.</p>
+      <div class="cta-band__actions">
+        <a href="/propiedades" class="btn btn--white">Ver disponibilidad</a>
+        <a href="/contacto" class="btn btn--outline-white">Consultar fechas</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(107,124,74,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 20% 70%, rgba(196,96,58,0.1) 0%, transparent 60%),
+      var(--sand);
+  }
+
+  .hero__texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='%233d2b1f'/%3E%3C/svg%3E");
+    background-size: 30px 30px;
+  }
+
+  .hero__content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    max-width: 700px;
+    padding-left: min(10vw, 8rem);
+    animation: heroIn 1s ease both;
+  }
+
+  @keyframes heroIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero__eyebrow {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--earth);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero__title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero__subtitle {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--stone);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero__scroll span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--terracotta));
+    animation: scrollLine 2s ease-in-out infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.001% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  /* STRIP */
+  .strip {
+    background: var(--earth);
+    padding: 2rem;
+  }
+
+  .strip__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .strip__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+  }
+
+  .strip__item strong {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--terracotta);
+  }
+
+  .strip__item span {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: rgba(245,240,232,0.6);
+    text-transform: uppercase;
+  }
+
+  .strip__divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(245,240,232,0.15);
+  }
+
+  /* PROPERTIES */
+  .properties {
+    padding: 7rem 2rem;
+  }
+
+  .properties__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .properties__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  /* SECTION HEADERS */
+  .section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--earth);
+    margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    color: var(--stone);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* WHY */
+  .why {
+    background: var(--sand);
+    padding: 7rem 2rem;
+  }
+
+  .why__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .why__body {
+    color: var(--stone);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    margin: 1.5rem 0;
+  }
+
+  .why__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .why__list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .why__icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .why__list strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--earth);
+    margin-bottom: 0.2rem;
+  }
+
+  .why__list p {
+    font-size: 0.88rem;
+    color: var(--stone);
+    font-weight: 300;
+  }
+
+  .why__visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    height: 400px;
+  }
+
+  .why__card {
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .why__card--1 {
+    background: var(--olive);
+    grid-row: 1;
+    grid-column: 1 / -1;
+    color: rgba(245,240,232,0.7);
+  }
+
+  .why__card--1 span {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+
+  .why__card--1 p {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .why__card--2 {
+    background: var(--terracotta);
+    color: var(--white);
+  }
+
+  .why__card--3 {
+    background: var(--earth);
+    color: var(--white);
+  }
+
+  .why__card--4 {
+    background: rgba(107,124,74,0.15);
+    border: 1px solid rgba(107,124,74,0.3);
+    color: var(--earth);
+  }
+
+  .why__card--4 p {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .why__card--4 span {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .why__big {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .why__card--2 p,
+  .why__card--3 p {
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--terracotta);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .cta-band__inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-band h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .cta-band p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-band__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+  }
+
+  .btn--primary {
+    background: var(--terracotta);
+    color: var(--white);
+    border-color: var(--terracotta);
+  }
+
+  .btn--primary:hover {
+    background: var(--terracotta-dark);
+    border-color: var(--terracotta-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--earth);
+    border-color: rgba(61,43,31,0.25);
+  }
+
+  .btn--ghost:hover {
+    border-color: var(--earth);
+    transform: translateY(-2px);
+  }
+
+  .btn--white {
+    background: var(--white);
+    color: var(--terracotta);
+    border-color: var(--white);
+  }
+
+  .btn--white:hover {
+    background: var(--sand);
+    transform: translateY(-2px);
+  }
+
+  .btn--outline-white {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .btn--outline-white:hover {
+    border-color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .properties__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .why__inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .why__visual {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .properties__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .strip__divider {
+      display: none;
+    }
+
+    .strip__inner {
+      gap: 2rem;
+    }
+
+    .why__visual {
+      height: 280px;
+    }
+  }
+</style>

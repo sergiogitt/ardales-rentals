@@ -1,0 +1,388 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import { properties } from '../../data/properties';
+---
+
+<Layout
+  title="Propiedades en Ardales, Málaga | Ardales Rentals"
+  description="Descubre nuestras 3 casas rurales en alquiler en Ardales, Málaga. Casa del Olivo, Cortijo La Sierra y Villa El Limón. Reserva directa, mejor precio garantizado."
+>
+  <Nav />
+
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <p class="page-hero__eyebrow">Nuestras propiedades</p>
+      <h1 class="page-hero__title">Tres casas, un lugar único</h1>
+      <p class="page-hero__desc">
+        Cada propiedad ha sido cuidadosamente seleccionada y restaurada para ofrecerte
+        una experiencia auténtica en Ardales. Desde casas de campo entre olivos hasta
+        villas con piscina infinita.
+      </p>
+    </div>
+  </section>
+
+  <section class="props-list">
+    <div class="props-list__inner">
+      {properties.map((p, i) => (
+        <div class={`prop-row ${i % 2 === 1 ? 'prop-row--reverse' : ''}`}>
+          <div class="prop-row__visual" style={`background: linear-gradient(135deg, ${p.color}, color-mix(in srgb, ${p.color} 50%, #3d2b1f))`}>
+            <img class="property-card__emoji" src={p.images[0]}/>
+            <div class="prop-row__badge">{p.location}</div>
+          </div>
+          <div class="prop-row__body">
+            <div class="prop-row__meta">
+              <span>👥 {p.guests} huéspedes</span>
+              <span>🛏 {p.bedrooms} hab.</span>
+              <span>🚿 {p.bathrooms} baños</span>
+            </div>
+            <h2 class="prop-row__name">{p.name}</h2>
+            <p class="prop-row__tagline">{p.tagline}</p>
+            <ul class="prop-row__features">
+              {p.features.slice(0, 4).map(f => <li style={`--dot: ${p.color}`}>{f}</li>)}
+            </ul>
+            <div class="prop-row__footer">
+              <div class="prop-row__price">
+                <span class="prop-row__price-num" style={`color: ${p.color}`}>desde {p.price}€</span>
+                <span class="prop-row__price-unit">/noche</span>
+              </div>
+              <a href={`/propiedades/${p.slug}`} class="btn" style={`background: ${p.color}`}>
+                Ver propiedad →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="compare">
+    <div class="compare__inner">
+      <h2>Comparar propiedades</h2>
+      <div class="compare__table-wrap">
+        <table class="compare__table">
+          <thead>
+            <tr>
+              <th>Característica</th>
+              {properties.map(p => <th>{p.name}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Huéspedes</td>
+              {properties.map(p => <td>{p.guests}</td>)}
+            </tr>
+            <tr>
+              <td>Habitaciones</td>
+              {properties.map(p => <td>{p.bedrooms}</td>)}
+            </tr>
+            <tr>
+              <td>Baños</td>
+              {properties.map(p => <td>{p.bathrooms}</td>)}
+            </tr>
+            <tr>
+              <td>Precio desde</td>
+              {properties.map(p => <td><strong>{p.price}€/noche</strong></td>)}
+            </tr>
+            <tr>
+              <td>Piscina</td>
+              {properties.map(p => <td>{p.features.some(f => f.toLowerCase().includes('piscina')) ? '✓' : '—'}</td>)}
+            </tr>
+            <tr>
+              <td></td>
+              {properties.map(p => (
+                <td>
+                  <a href={`/propiedades/${p.slug}`} class="compare__link" style={`color: ${p.color}`}>
+                    Reservar →
+                  </a>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-hero {
+    background: var(--sand);
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .page-hero__inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .page-hero__eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .page-hero__desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.8;
+  }
+
+  /* PROPERTY ROWS */
+  .props-list {
+    padding: 5rem 2rem;
+  }
+
+  .props-list__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .prop-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .prop-row--reverse {
+    direction: rtl;
+  }
+
+  .prop-row--reverse > * {
+    direction: ltr;
+  }
+
+  .prop-row__visual {
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .prop-row__emoji {
+    font-size: 8rem;
+    opacity: 0.35;
+    filter: blur(1px);
+  }
+
+  .prop-row__badge {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: rgba(250,247,242,0.92);
+    color: var(--earth);
+    padding: 0.4rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  .prop-row__meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--stone);
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .prop-row__name {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .prop-row__tagline {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--stone);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .prop-row__features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .prop-row__features li {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--earth);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .prop-row__features li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--dot);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .prop-row__footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .prop-row__price-num {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .prop-row__price-unit {
+    font-size: 0.85rem;
+    color: var(--stone);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 1.75rem;
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .btn:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+  }
+
+  /* COMPARE TABLE */
+  .compare {
+    background: var(--sand);
+    padding: 5rem 2rem;
+  }
+
+  .compare__inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .compare h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 2rem;
+  }
+
+  .compare__table-wrap {
+    overflow-x: auto;
+  }
+
+  .compare__table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(61,43,31,0.06);
+  }
+
+  .compare__table th,
+  .compare__table td {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(61,43,31,0.06);
+    font-size: 0.9rem;
+  }
+
+  .compare__table th {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--earth);
+    background: var(--sand);
+  }
+
+  .compare__table th:first-child {
+    color: var(--stone);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .compare__table td:first-child {
+    color: var(--stone);
+    font-size: 0.85rem;
+    font-weight: 400;
+  }
+
+  .compare__table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .compare__table strong {
+    color: var(--terracotta);
+    font-weight: 600;
+  }
+
+  .compare__link {
+    font-weight: 500;
+    font-size: 0.88rem;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+
+  .compare__link:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .prop-row,
+    .prop-row--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+
+    .prop-row__visual {
+      height: 280px;
+    }
+
+    .prop-row__features {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

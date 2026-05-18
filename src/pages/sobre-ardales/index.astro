@@ -1,0 +1,330 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Ardales, Málaga — Todo lo que necesitas saber | Ardales Rentals"
+  description="Descubre Ardales, el pueblo blanco de Málaga. Historia, naturaleza, gastronomía y el famoso Caminito del Rey. Tu guía completa para visitar Ardales."
+>
+  <Nav />
+
+  <section class="ardales-hero">
+    <div class="ardales-hero__inner">
+      <p class="eyebrow">Descubre</p>
+      <h1>Ardales, Málaga</h1>
+      <p class="hero-desc">
+        El pueblo más bonito del Valle del Guadalhorce y puerta de entrada
+        al Caminito del Rey.
+      </p>
+    </div>
+  </section>
+
+  <article class="ardales-content">
+    <div class="ardales-content__inner">
+
+      <section class="ardales-section">
+        <h2>¿Qué es Ardales?</h2>
+        <p>
+          Ardales es un municipio de la provincia de Málaga, situado en el Valle del Guadalhorce,
+          a tan solo 35 kilómetros de la capital. Con más de 13.000 habitantes, es uno de los
+          pueblos blancos más representativos de Andalucía, coronado por un impresionante castillo
+          árabe del siglo IX desde el que se divisa una panorámica incomparable del valle.
+        </p>
+        <p>
+          Su arquitectura, su gastronomía auténtica, su clima privilegiado y su cercanía a
+          espacios naturales de primer orden hacen de Ardales uno de los destinos de turismo
+          rural más interesantes de Málaga.
+        </p>
+      </section>
+
+      <section class="ardales-section">
+        <h2>El Caminito del Rey</h2>
+        <p>
+          A tan solo 10 minutos de Ardales se encuentra la entrada al
+          <strong>Caminito del Rey</strong>, declarado una de las rutas de senderismo más
+          espectaculares de España. Este sendero de 7,7 km discurre por las paredes del
+          desfiladero de los Gaitanes, con pasarelas colgadas sobre el vacío y vistas
+          absolutamente impresionantes.
+        </p>
+        <p>
+          Alojarte en Ardales significa tener el Caminito del Rey a tu puerta, pudiendo
+          madrugar para disfrutarlo antes de las aglomeraciones turísticas.
+        </p>
+      </section>
+
+      <div class="ardales-facts">
+        <div class="fact-card">
+          <span>🏔️</span>
+          <strong>562 m</strong>
+          <p>sobre el nivel del mar</p>
+        </div>
+        <div class="fact-card">
+          <span>☀️</span>
+          <strong>+300</strong>
+          <p>días de sol al año</p>
+        </div>
+        <div class="fact-card">
+          <span>🚗</span>
+          <strong>35 km</strong>
+          <p>de Málaga capital</p>
+        </div>
+        <div class="fact-card">
+          <span>🥾</span>
+          <strong>7,7 km</strong>
+          <p>Caminito del Rey</p>
+        </div>
+      </div>
+
+      <section class="ardales-section">
+        <h2>Gastronomía local</h2>
+        <p>
+          La cocina de Ardales es auténtica cocina malagueña. El aceite de oliva virgen extra
+          de la comarca es de una calidad excepcional, y los productos de temporada del
+          Valle del Guadalhorce —tomates, pimientos, naranjas, limones— son conocidos en
+          toda Andalucía.
+        </p>
+        <p>
+          No te pierdas el ajoblanco, la porra antequerana, las migas con uvas, el
+          chivo al ajillo y el vino de Málaga. Los restaurantes del pueblo ofrecen menús
+          del día de cocina casera a precios muy asequibles.
+        </p>
+      </section>
+
+      <section class="ardales-section">
+        <h2>Qué visitar en Ardales</h2>
+        <ul class="ardales-list">
+          <li>
+            <strong>Castillo Árabe de Ardales</strong> — Fortaleza del siglo IX con vistas panorámicas al valle.
+          </li>
+          <li>
+            <strong>Iglesia de la Encarnación</strong> — Construida en el siglo XVI sobre una antigua mezquita.
+          </li>
+          <li>
+            <strong>Mirador del Hacho</strong> — El mejor punto de vista sobre el Valle del Guadalhorce.
+          </li>
+          <li>
+            <strong>Caminito del Rey</strong> — La ruta más famosa de Málaga, a 10 minutos.
+          </li>
+          <li>
+            <strong>Termas de Carratraca</strong> — Aguas termales milenarias a 20 minutos.
+          </li>
+          <li>
+            <strong>Paraje Natural Desfiladero de los Gaitanes</strong> — Cañón espectacular del río Guadalhorce.
+          </li>
+        </ul>
+      </section>
+
+      <section class="ardales-section">
+        <h2>Cómo llegar a Ardales</h2>
+        <p>
+          <strong>En coche:</strong> Ardales está a 35 km de Málaga por la A-357. El trayecto
+          dura unos 35–40 minutos. Desde Marbella son aproximadamente 65 km (1 hora).
+        </p>
+        <p>
+          <strong>En tren:</strong> Renfe tiene estación en Ardales con conexión directa a
+          Málaga capital. El trayecto dura unos 45 minutos y es muy cómodo y económico.
+        </p>
+        <p>
+          <strong>Desde el aeropuerto:</strong> El aeropuerto de Málaga-Costa del Sol está
+          a 45 minutos en coche, lo que hace de Ardales un destino fácilmente accesible
+          para viajeros internacionales.
+        </p>
+      </section>
+
+      <div class="ardales-cta">
+        <h2>¿Listo para descubrir Ardales?</h2>
+        <p>Reserva una de nuestras casas rurales y vive Ardales desde dentro.</p>
+        <a href="/propiedades" class="btn">Ver propiedades</a>
+      </div>
+
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
+
+<style>
+  .ardales-hero {
+    background: linear-gradient(135deg, #6b7c4a22, #c4603a11), var(--sand);
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .ardales-hero__inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+
+  .ardales-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 1.25rem;
+    line-height: 1;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  .ardales-content {
+    padding: 5rem 2rem;
+  }
+
+  .ardales-content__inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .ardales-section {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(61,43,31,0.08);
+  }
+
+  .ardales-section:last-child {
+    border-bottom: none;
+  }
+
+  .ardales-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--earth);
+    margin-bottom: 1rem;
+  }
+
+  .ardales-section p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #5a4a40;
+    line-height: 1.9;
+    margin-bottom: 1rem;
+  }
+
+  .ardales-facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--sand);
+    border-radius: 4px;
+  }
+
+  .fact-card {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .fact-card span {
+    font-size: 1.75rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .fact-card strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 0.2rem;
+  }
+
+  .fact-card p {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .ardales-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ardales-list li {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #5a4a40;
+    padding-left: 1.25rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .ardales-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--terracotta);
+  }
+
+  .ardales-list strong {
+    font-weight: 500;
+    color: var(--earth);
+  }
+
+  .ardales-cta {
+    background: var(--earth);
+    border-radius: 4px;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .ardales-cta h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .ardales-cta p {
+    color: rgba(245,240,232,0.7);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--terracotta);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--terracotta-dark);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .ardales-facts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
